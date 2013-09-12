@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="ItemsControlFooterTemplate" TargetType="{x:Type ItemsControl}">
+        <ControlTemplate.Resources>
+            <LinearGradientBrush x:Key="defaultBackground" StartPoint="0, 0" EndPoint="0, 1" SpreadMethod="Repeat" >
+                <GradientStop Color="#54A8FF" Offset="0" />
+                <GradientStop Color="#54A8FF" Offset="0.5" />
+                <GradientStop Color="#419FFF" Offset="0.5" />
+                <GradientStop Color="#419FFF" Offset="1" />
+
+                <LinearGradientBrush.RelativeTransform>
+                    <ScaleTransform ScaleY="1" />
+                </LinearGradientBrush.RelativeTransform>
+                <LinearGradientBrush.Transform>
+                    <RotateTransform Angle="-45" />
+                </LinearGradientBrush.Transform>
+            </LinearGradientBrush>
+        </ControlTemplate.Resources>
+
+        <Grid Background="{StaticResource defaultBackground}" >
+            <Grid.Effect>
+                <DropShadowEffect Color="DarkGray" BlurRadius="5" ShadowDepth="0" />
+            </Grid.Effect>
+            
+            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" >
+                <Border BorderBrush="#6CFFF8DC" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0, 0" EndPoint="0, 1">
+                            <GradientStop Color="#30F0F0F0" Offset="0" />
+                            <GradientStop Color="#30F0F0F0" Offset="0.45" />
+                            <GradientStop Color="Transparent" Offset="0.55" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <ItemsPresenter VerticalAlignment="Center" Margin="{TemplateBinding BorderThickness}" HorizontalAlignment="Center" />
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

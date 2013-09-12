@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:attached="clr-namespace:Xemio.ImageUploader.Client.UserInterface.AttachedProperties">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Templates/ItemsControlFooterTemplate.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="{x:Type ItemsControl}" x:Key="ItemsControlFooter">
+        <Setter Property="BorderBrush" Value="#7EA9A9A9" />
+        <Setter Property="BorderThickness" Value="0, 1, 0, 0" />
+        <Setter Property="Template" Value="{StaticResource ItemsControlFooterTemplate}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel  Orientation="Horizontal" attached:MarginSetter.Margin="5, 0, 5, 0"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="UseLayoutRounding" Value="True" />
+    </Style>
+
+</ResourceDictionary>

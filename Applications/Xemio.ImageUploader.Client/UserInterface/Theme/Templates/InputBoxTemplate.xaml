@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:Xemio.ImageUploader.Client.UserInterface.ValueConverter"
+                    xmlns:attached="clr-namespace:Xemio.ImageUploader.Client.UserInterface.AttachedProperties">
+    <ControlTemplate x:Key="TextBoxTemplate" TargetType="{x:Type Control}">
+        <ControlTemplate.Resources>
+            <converter:ImageSourceToMarginConverter x:Key="_imageSourceToMarginConverter" />
+        </ControlTemplate.Resources>
+        
+        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2"  SnapsToDevicePixels="False">
+            
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="4" Direction="0" Color="#CCC" ShadowDepth="0" />
+            </Border.Effect>
+            
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="0, 1">
+                    <GradientStop Offset="0" Color="White" />
+                    <GradientStop Offset="1" Color="#FFF5F5F5" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Margin="{Binding Path=(attached:TextBoxImage.Image), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource _imageSourceToMarginConverter}}"
+                       Source="{Binding Path=(attached:TextBoxImage.Image), RelativeSource={RelativeSource TemplatedParent}}" 
+                       Stretch="None" />
+                <ScrollViewer Grid.Column="1"  x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            </Grid>
+
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" TargetName="border" Value="#AAA"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" TargetName="border" Value="#999" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+    
+</ResourceDictionary>

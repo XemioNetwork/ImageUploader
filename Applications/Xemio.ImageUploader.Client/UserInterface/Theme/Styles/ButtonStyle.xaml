@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Templates/ButtonTemplate.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush" Value="#00000000"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}" />
+    </Style>
+    
+</ResourceDictionary>
